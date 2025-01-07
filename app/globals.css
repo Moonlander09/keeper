@@ -1,0 +1,362 @@
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url('../public/Sprinkle.svg'); /* Replace with the URL of your background image */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; 
+  transition: all 0.5s ease-in-out;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem;
+  gap: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.45);
+  color: #111;
+  font-size: 2rem;
+  background-color: #fff;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 4rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.14);
+border-radius: 25px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0.5px);
+-webkit-backdrop-filter: blur(4.5px);
+
+border: 4px solid #000f1e;
+}
+
+.form {
+  align-items: center;
+  display: flex
+;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+label{
+  font-size: 2rem;
+  color: #000f1e;
+}
+
+textarea{
+  background: #000f1e0f;
+    border: #383838;
+    border-radius: 25px;
+    font-family: inherit;
+    font-size: 2rem;
+    outline: none;
+    padding: 1.5rem;
+    resize: none;
+    width: 85%;
+}
+
+textarea:focus{
+  border: #383838;
+  box-shadow: 0 7px 29px 0 #000f1e, 0 0 0 4px #000f1e;
+  outline: 0;
+}
+
+.btn-submit{
+  background-color: #fff;
+    border: 3px solid #000f1e;
+    border-radius: 45px;
+    color: #000f1e;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1.5rem 3.5rem;
+    transition: .5s ease;
+}
+
+.btn-submit:hover{
+  background-color: #000f1e;
+  color:#fff;
+  border: 3px solid #000f1e;
+}
+
+.task-style{
+  margin: 1rem 5rem;
+}
+
+.task{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 4px solid #000f1e;
+  background: rgba(255, 255, 255, 0.14);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(0.5px);
+-webkit-backdrop-filter: blur(4.5px);
+padding: 1rem 1.5rem;
+margin: 1rem;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
+}
+
+.task li {
+  list-style: none;
+  
+}
+
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+.btn-style{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  color: #01172f;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+ 
+  transition: all 0.3s;
+
+}
+.edit:hover{
+  color:rgb(75, 230, 124);
+}
+
+.delete:hover {
+  color: #ff0000d5;
+}
+
+
+
+
+.sign-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+
+  font-size: 15px;
+  border: 3px solid #000f1e;
+  transition: all 0.5s ease;
+}
+
+.sign-btn:hover {
+ 
+  background-color: #000f1e;
+  color: #fff;
+  box-shadow: #000f1e 0px 7px 29px 0px;
+}
+
+.sign-btn:active {
+
+  background-color: #000f1e;
+  color: hsl(0, 0%, 100%);
+  box-shadow: #000f1e 0px 0px 0px 0px;
+}
+
+.user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.user img{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+/*
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #fffbf5;
+  background-image: url(http://www.transparenttextures.com/patterns/cubes.png);
+  color: #383838;
+  font-family: Ubuntu, sans-serif;
+  line-height: 1.6;
+  position: relative;
+}
+.heading {
+  background-color: #f4a261;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.45);
+  color: #fffbf5;
+  font-size: 4.5rem;
+  text-align: center;
+}
+.grid {
+  grid-column-gap: 4rem;
+  grid-row-gap: 4rem;
+  -webkit-column-gap: 4rem;
+  column-gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  margin: 2rem 0;
+  padding: 3rem;
+  row-gap: 4rem;
+}
+.item {
+  background-color: #fffbf5;
+  border-radius: 15px;
+  box-shadow: 0 7px 29px 0 hsla(240, 5%, 41%, 0.2);
+  line-height: 1.9;
+  padding: 2rem;
+  position: relative;
+}
+.item h1 {
+  font-size: 3rem;
+}
+.item p {
+  font-size: 2rem;
+}
+.btn-close {
+  background-color: transparent;
+  border: none;
+  color: #383838;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  position: absolute;
+  right: 5%;
+  top: 15%;
+  transition: 0.5s ease;
+}
+.btn-close:hover {
+  color: #f4a261;
+}
+.input-class {
+  background-color: #fffbf5;
+  border-radius: 45px;
+  box-shadow: 0 7px 29px 0 hsla(240, 5%, 41%, 0.2);
+  margin: 4rem;
+  padding: 4rem;
+}
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+}
+.title-head {
+  background: #f4a3614d;
+  border: #383838;
+  border-radius: 25px;
+  font-family: inherit;
+  font-size: 2rem;
+  outline: none;
+  padding: 1.5rem;
+  transition: 0.3s;
+  width: 75%;
+}
+.title-head:focus {
+  border: #383838;
+  box-shadow: 0 7px 29px 0 #f4a261, 0 0 0 4px #f4a261;
+  outline: 0;
+}
+.title-body {
+  background: #f4a3614d;
+  border: #383838;
+  border-radius: 25px;
+  font-family: inherit;
+  font-size: 2rem;
+  outline: none;
+  padding: 1.5rem;
+  resize: none;
+  transition: 0.3s;
+  width: 75%;
+}
+.title-body:focus {
+  border: #383838;
+  box-shadow: 0 7px 29px 0 #f4a261, 0 0 0 4px #f4a261;
+  outline: 0;
+}
+.btn {
+  background-color: #fffbf5;
+  border: 3px solid #f4a261;
+  border-radius: 45px;
+  color: #f4a261;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1.5rem 4rem;
+  transition: 0.5s ease;
+}
+.btn:hover {
+  background-color: #f4a261;
+  border: 3px solid transparent;
+  color: #fffbf5;
+}
+footer {
+  bottom: 0;
+  height: 2.5rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+footer p {
+  color: #383838;
+  font-size: 1.6rem;
+}
+@media (max-width: 31.25em) {
+  html {
+    font-size: 50%;
+  }
+  .title-body,
+  .title-head {
+    width: 100%;
+  }
+}*/
+/*# sourceMappingURL=main.23da8730.css.map*/
