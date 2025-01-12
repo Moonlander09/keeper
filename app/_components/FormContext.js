@@ -5,11 +5,11 @@ import { createContext, useContext, useState } from "react";
 const FormContext = createContext();
 
 function FormProvider({ children }) {
-  const [input, setInput] = useState("");
+  const [editTask, setEditTask] = useState(null);
   const [dataField, setDataField] = useState([]);
 
   return (
-    <FormContext.Provider value={{ input, setDataField, setInput, dataField }}>
+    <FormContext.Provider value={{ editTask,setEditTask, setDataField, dataField }}>
       {children}
     </FormContext.Provider>
   );

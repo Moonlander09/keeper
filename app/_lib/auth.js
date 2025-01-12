@@ -10,17 +10,22 @@ const authConfig = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {console.log(user.email)
+    async signIn({ user, account, profile }) {
       try {
         const existingGuest = await getGuest(user.email);
-        if (!existingGuest) await createGuest({ email: user.email });
+        if (!existingGuest)
+          await createGuest({ id: Math.random(), email: user.email });
         return true;
       } catch {
         return false;
       }
     },
+    async session({ session, user }) {
+      const guest = await getGuest(session.user.email);
+      session.user.guest = guest.id;
+      return session;
+    },
   },
-  
 };
 
 export const {

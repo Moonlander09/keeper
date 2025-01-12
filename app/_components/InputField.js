@@ -1,24 +1,14 @@
 "use client";
 
-import { updateTask } from "../_lib/actions";
-import { useForm } from "./FormContext";
+import { useFormStatus } from "react-dom";
+import { createTask } from "../_lib/actions";
+
 
 function InputField() {
-  const { input, setInput, setDataField } = useForm();
+  
 
-  function handleSubmit() {
-    const inputData = {
-      id: Math.random().toString(),
-      task: input,
-    };
-    
-    setDataField((prev)=>{
-      return [...prev,inputData]
-    });
-    setInput("");
-  }
   return (
-    <form className="form" onSubmit={handleSubmit} action={updateTask}>
+    <form className="form"  action={createTask}>
       <label>Enter your Task:</label>
       <textarea
         type="text"
@@ -26,16 +16,19 @@ function InputField() {
         placeholder="type here..."
         rows={2}
         cols={30}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
         maxLength={200}
         required
       />
-      <button className="btn-submit" >
-        Add
-      </button>
+      <AddButton/>
     </form>
   );
 }
 
 export default InputField;
+
+function AddButton(){
+  const {pending} = useFormStatus();
+  return <button className="btn-submit" disabled={pending}>
+{pending ? 'Adding...' : 'Add'}
+  </button>
+}
