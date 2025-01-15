@@ -1,6 +1,6 @@
 import { Josefin_Sans } from "next/font/google";
 import "./globals.css";
-import { FormProvider } from "./_components/FormContext";
+
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={josefin.className}>
-        <FormProvider>{children}</FormProvider>
+        {children}
       </body>
     </html>
   );

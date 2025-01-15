@@ -3,7 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
-import { getTaskUser, getTaskUserById } from "./services";
+
+import { redirect } from "next/navigation";
 
 export async function signInAction() {
   await signIn("google");
@@ -42,16 +43,23 @@ export async function deleteTask(taskId) {
   return data;
 }
 
-export async function updateTask(taskId){
+export async function updateTask(formData){
   const session = await auth();
   if (!session) throw new Error("You must logged in to your account.");
-const taskDataById = await getTaskUserById(taskId);
+ 
+  const task = formData.get("task");
+  const taskId = formData.get('id')
+  const updateTask = { task, guestId: session.user.guest ,id:+taskId };
 
+const { data, error } = await supabase
+    .from("tasks")
+    .update({task:updateTask.task})
+    .eq("id", updateTask.id).single();
 
-// const { data, error } = await supabase
-// .from('tasks')
-// .update({ other_column: 'otherValue' })
-// .eq('some_column', 'someValue')
-// .select()
+  if (error) throw new Error("Could not Update the task.");
+
+  revalidatePath("/");
+  redirect('/')
+  return data;
 
 }

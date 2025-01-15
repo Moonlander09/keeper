@@ -58,7 +58,17 @@ export async function createGuest(newGuest) {
   if (error) throw new Error("Could not create new Guest");
   return data;
 }
+export async function updatedTask(taskData) {
+ const { data, error } = await supabase
+ .from('tasks')
+ .update([taskData])
+ .select()
 
+ if(error) throw new Error('Could not update the task.')
+
+  return data;
+
+}
 // export async function getGuest(email) {
 //   const { data, error } = await supabase
 //     .from("guests")

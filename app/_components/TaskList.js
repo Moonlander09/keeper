@@ -3,9 +3,9 @@ import {
   AiOutlineDelete,
   AiOutlineEdit,
 } from "react-icons/ai";
-import ButtonEdit from "./ButtonEdit";
 import ButtonDelete from "./ButtonDelete";
 import { MdTaskAlt } from "react-icons/md";
+import Link from "next/link";
 
 
 function TaskList({ data }) {
@@ -20,9 +20,9 @@ function TaskList({ data }) {
             <li>{t.task}</li>
           </div>
           <div className="btn">
-            <ButtonEdit editId = {t.id}>
+            <Link href={`/${t.id}`} className="btn-style edit">
               <AiOutlineEdit />
-            </ButtonEdit>
+            </Link>
             <ButtonDelete deleteId= {t.id}>
               <AiOutlineDelete />
             </ButtonDelete>
