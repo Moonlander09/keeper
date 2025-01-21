@@ -10,15 +10,22 @@ const authConfig = {
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile }) {
+    async signIn({ user }) {
       try {
+        // Check if the guest exists.
         const existingGuest = await getGuest(user.email);
-        if (!existingGuest)
-          await createGuest({ id: Math.random(), email: user.email });
-        return true;
-      } catch {
-        return false;
+  
+        // If the guest does not exist, create it.
+        if (!existingGuest) {
+          await createGuest({ email: user.email });
+        }
+  
+        return true; // Allow sign-in.
+      } catch (error) {
+        console.error("Sign-in error:", error);
+        return false; // Deny sign-in.
       }
+    
     },
     async session({ session, user }) {
       const guest = await getGuest(session.user.email);

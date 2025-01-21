@@ -1,5 +1,9 @@
 function Spinner() {
-    return <span className='loader'></span>;
-  }
-  
-  export default Spinner;
+  return (
+    <div className="overlay">
+      <span className="loader"></span>;
+    </div>
+  );
+}
+
+export default Spinner;

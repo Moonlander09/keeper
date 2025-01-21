@@ -14,7 +14,9 @@ export async function getTaskUser(id) {
     .select("*")
     .eq("guestId", id);
 
-  if (error) throw new Error("Could not get User's Data");
+  if (error) {
+    throw new Error("Could not get User's Data");
+  }
 
   return data;
 }
@@ -30,12 +32,6 @@ export async function getTaskUserById(id) {
   return data;
 }
 
-export async function getGuests() {
-  const { data, error } = await supabase.from("guests").select("*");
-
-  if (error) throw new Error("could not fetch user");
-  return data;
-}
 
 export async function getGuest(email) {
   const { data, error } = await supabase
@@ -44,14 +40,10 @@ export async function getGuest(email) {
     .eq("email", email)
     .single();
 
-  if (error) {
-    throw new Error("Could not fetch the User");
-  }
-  if (data) {
-    return data;
-  }
-  return null;
+  // No error here! We handle the possibility of no guest in the sign in callback
+  return data;
 }
+
 
 export async function createGuest(newGuest) {
   const { data, error } = await supabase.from("guests").insert([newGuest]);
@@ -59,38 +51,13 @@ export async function createGuest(newGuest) {
   return data;
 }
 export async function updatedTask(taskData) {
- const { data, error } = await supabase
- .from('tasks')
- .update([taskData])
- .select()
+  const { data, error } = await supabase
+    .from("tasks")
+    .update([taskData])
+    .select();
 
- if(error) throw new Error('Could not update the task.')
+  if (error) throw new Error("Could not update the task.");
 
   return data;
-
 }
-// export async function getGuest(email) {
-//   const { data, error } = await supabase
-//     .from("guests")
-//     .select("*")
-//     .eq("email", email);
-//   // .single();
-//   if (error) {
-//     throw new Error("Could not fetch the User");
-//   }
-//   if (data.length > 0) {
-//     return data[0];
 
-//   }
-
-//   return null;
-// }
-
-// export async function createGuest(newGuest) {
-//   console.log("creating guest:", newGuest);
-//   const { data, error } = await supabase
-//     .from("guests")
-//     .insert({...newGuest });
-//   if (error) throw new Error("Could not create new Guest");
-//   return data;
-// }
