@@ -121,7 +121,7 @@ textarea:focus {
 
 /* Task styles */
 .task-style {
-  margin: 2rem 3rem;
+  margin: 2rem auto;
   max-width: 800px;
 }
 
@@ -157,9 +157,9 @@ textarea:focus {
 
 /* Button styles */
 .btn-style {
-  display: flex; /* Ensures consistent flex behavior */
-  align-items: center; /* Centers content vertically within the button */
-  justify-content: center; /* Centers content horizontally */
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
   background: transparent;
   border: none;
   font-size: 2rem;
@@ -168,6 +168,12 @@ textarea:focus {
   transition: color 0.3s ease;
 }
 
+.disabled{
+  color: grey;
+  pointer-events: none;
+  opacity: 0.6; 
+  cursor: not-allowed;
+}
 .btn {
   display: flex;
   gap: 0.75rem;
@@ -305,6 +311,9 @@ textarea:focus {
 @media (max-width: 544px) {
   .container {
     margin: 3rem 2rem;
+  }
+  .task-style{
+    margin:2rem 1.5rem
   }
 
   .header {

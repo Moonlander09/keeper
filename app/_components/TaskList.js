@@ -1,11 +1,10 @@
 "use client";
 import {
-  AiOutlineDelete,
   AiOutlineEdit,
 } from "react-icons/ai";
-import ButtonDelete from "./ButtonDelete";
 import { MdTaskAlt } from "react-icons/md";
 import Link from "next/link";
+import DeleteAction from "./DeleteAction";
 
 
 function TaskList({ data }) {
@@ -23,9 +22,7 @@ function TaskList({ data }) {
             <Link href={`/${t.id}`} className="btn-style edit">
               <AiOutlineEdit />
             </Link>
-            <ButtonDelete deleteId= {t.id}>
-              <AiOutlineDelete />
-            </ButtonDelete>
+            <DeleteAction deleteId= {t.id}/>
           </div>
         </div>
       ))}
